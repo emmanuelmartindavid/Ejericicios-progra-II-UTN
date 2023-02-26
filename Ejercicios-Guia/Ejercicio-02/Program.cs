@@ -2,8 +2,11 @@
 //Se debe validar que el número sea mayor que cero, caso contrario,
 //mostrar el mensaje: "ERROR. ¡Reingresar número!".
 //Utilizar el método Pow de la clase Math para calcular las potencias.
-namespace Ejercicio02
+namespace Ejercicio_02
 {
+
+
+
     internal class Program
     {
         static void Main(string[] args)
@@ -12,7 +15,7 @@ namespace Ejercicio02
             double qube;
             double number;
             bool conditionNumber;
-     
+
             do
             {
 
@@ -22,7 +25,7 @@ namespace Ejercicio02
 
 
                 conditionNumber = ValidateNumber(numberString, number);
-              
+
 
             } while (!conditionNumber || number < 0);
 
@@ -35,7 +38,7 @@ namespace Ejercicio02
 
         static bool ValidateNumber(string input, double number)
         {
-         
+
             if (double.TryParse(input, out number))
             {
                 return true;
@@ -46,4 +49,5 @@ namespace Ejercicio02
             }
         }
     }
+
 }
