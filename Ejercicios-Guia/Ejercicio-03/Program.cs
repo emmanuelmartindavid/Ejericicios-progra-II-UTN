@@ -17,10 +17,7 @@ namespace Ejercicio_03
             string numberString;
             int number;
             bool isPrime;
-            bool f = true;
-            int n = 2;
-            double result;
-
+            bool f = true;          
 
             do
             {
@@ -63,7 +60,7 @@ namespace Ejercicio_03
                 }
                 for (int i = 2; i < number; i++)
                 {
-                    Console.WriteLine("I {0} NUMERO {1}", i, number);
+                   // Console.WriteLine("I {0} NUMERO {1}", i, number);
                     if (number % i == 0)
                     {
                         return false;
