@@ -3,27 +3,27 @@
 
 namespace Ejercicio_01
 {
- 
-        internal class Program
+
+    internal class Program
+    {
+        static void Main()
         {
-            static void Main()
+            bool flagMaximus = false;
+            bool flagMinimus = false;
+            int minimum = 0;
+            int maximus = 0;
+            int total = 0;
+            decimal average = 0;
+            int i;
+
+            Console.WriteLine("Ingrese 5 numeros, por favor.");
+
+            for (i = 0; i < 5; i++)
             {
-                string numberString;
-                bool flagMaximus = false;
-                bool flagMinimus = false;
-                int minimum = 0;
-                int maximus = 0;
-                int total = 0;
-                float average = 0;
 
-                Console.WriteLine("Ingrese 5 numeros, por favor.");
+               if( int.TryParse(Console.ReadLine(), out int number))
 
-                for (int i = 0; i < 5; i++)
                 {
-                    numberString = Console.ReadLine();
-
-                    int.TryParse(numberString, out int number);
-
                     total += number;
                     average = CalculateAverage(total);
 
@@ -37,25 +37,29 @@ namespace Ejercicio_01
                     {
                         flagMinimus = true;
                         minimum = number;
-
                     }
+                }
+                else
+                {
+                    Console.WriteLine("Ingrese bien los datos.");
+                    break;
 
                 }
-                Console.WriteLine("Numero minimo\n" + minimum);
-                Console.WriteLine("Numero maximo\n" + maximus);
-                Console.WriteLine("Average\n" + average);
-            }
-            static float CalculateAverage(int numbers)
-            {
-                float average;
-
-                average = numbers / 5;
-
-                return average;
-            }
-
+                if (i == 4)
+                {
+                    Console.WriteLine("Numero minimo\n" + minimum);
+                    Console.WriteLine("Numero maximo\n" + maximus);
+                    Console.WriteLine("Promedio\n" + average);
+                }
+            }         
         }
+        static decimal CalculateAverage(int numbers)
+        {
+            decimal average;
 
+            average = (decimal)numbers / 5;
 
-    
+            return average;
+        }
+    }
 }

@@ -5,29 +5,19 @@
 namespace Ejercicio_02
 {
 
-
-
     internal class Program
     {
         static void Main(string[] args)
         {
             double square;
-            double qube;
-            double number;
-            bool conditionNumber;
+            double qube;      
+            double number = 0;
 
             do
             {
-
                 Console.WriteLine("Ingrese un numero mayor a 0, por favor");
-                string numberString = Console.ReadLine();
-                double.TryParse(numberString, out number);
 
-
-                conditionNumber = ValidateNumber(numberString, number);
-
-
-            } while (!conditionNumber || number < 0);
+            } while (!double.TryParse(Console.ReadLine(), out number) || number < 0);
 
             square = Math.Pow(number, 2);
             qube = Math.Pow(number, 3);
@@ -36,7 +26,7 @@ namespace Ejercicio_02
 
         }
 
-        static bool ValidateNumber(string input, double number)
+     /*   static bool ValidateNumber(string input, double number)
         {
 
             if (double.TryParse(input, out number))
@@ -47,7 +37,7 @@ namespace Ejercicio_02
             {
                 return false;
             }
-        }
+        }*/
     }
 
 }
