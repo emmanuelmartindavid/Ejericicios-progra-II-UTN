@@ -23,21 +23,6 @@ namespace Ejercicio_02
             qube = Math.Pow(number, 3);
             Console.WriteLine("El cuadrado de {0} es {1}", number, square);
             Console.WriteLine("El cubo de {0} es {1}", number, qube);
-
         }
-
-     /*   static bool ValidateNumber(string input, double number)
-        {
-
-            if (double.TryParse(input, out number))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }*/
     }
-
 }

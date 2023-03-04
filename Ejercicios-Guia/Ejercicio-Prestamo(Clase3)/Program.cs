@@ -18,64 +18,40 @@ namespace Ejercicio_Prestamo_Clase3_
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Account account1 = new Account("Monotributista", 0);
-            string option;
-            int optionChosen;
-            string input;
-            decimal amount = 0;
-            bool conditionNumber;
+            Account account1 = new("Monotributista", 0);
             bool exit = true;
-
             do
             {
                 Console.WriteLine("Ingrese 1 para depositar. \nIngrese 2 para extraer dinero. \nIngrese 3 para salir.");
-                option = Console.ReadLine();
-                int.TryParse(option, out optionChosen);
-                switch (optionChosen)
+
+                if (int.TryParse(Console.ReadLine(), out int optionChosen))
                 {
-                    case 1:
-                        Console.WriteLine("Ingrese un monto a depositar. Ingrese salir para terminar el programa.");
-                        input = Console.ReadLine();
-                        decimal.TryParse(input, out amount);
-                        conditionNumber = ValidateNumber(input, amount);
-                        if (conditionNumber)
-                        {
-                            account1.DepositMoney(amount);
-                        }
-                        Console.WriteLine(account1.ShowData());
-                        break;
-                    case 2:
-                        Console.WriteLine("Ingrese un monto a quitar de su cuenta. Ingrese salir para terminar el programa.");
-                        input = Console.ReadLine();
-                        decimal.TryParse(input, out amount);
-                        conditionNumber = ValidateNumber(input, amount);
-                        if (conditionNumber)
-                        {
-                            account1.ExtractMoney(amount);
-                        }
-                        Console.WriteLine(account1.ShowData());
-                        break;
-                    case 3:
-                        exit = false;
-                        break;
+                    switch (optionChosen)
+                    {
+                        case 1:
+                            Console.WriteLine("Ingrese un monto a depositar. Ingrese salir para terminar el programa.");
+                            if (decimal.TryParse(Console.ReadLine(), out decimal depositAmount))
+                            {
+                                account1.DepositMoney(depositAmount);
+                            }
+                            Console.WriteLine(account1.ShowData());
+                            break;
+                        case 2:
+                            Console.WriteLine("Ingrese un monto a quitar de su cuenta. Ingrese salir para terminar el programa.");
+                            if (decimal.TryParse(Console.ReadLine(), out decimal extractAmount))
+                            {
+                                account1.ExtractMoney(extractAmount);
+                            }
+                            Console.WriteLine(account1.ShowData());
+                            break;
+                        case 3:
+                            exit = false;
+                            break;
+                    }
                 }
             } while (exit);
         }
-
-        static bool ValidateNumber(string input, decimal number)
-        {
-
-            if (decimal.TryParse(input, out number))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
     }
 }

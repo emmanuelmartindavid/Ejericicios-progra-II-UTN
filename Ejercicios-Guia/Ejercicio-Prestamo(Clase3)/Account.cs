@@ -33,7 +33,6 @@ namespace Ejercicio_Prestamo_Clase3_
             this.amount = amount;
 
         }
-
         public string GetOwner()
         {
             return owner;
@@ -46,7 +45,7 @@ namespace Ejercicio_Prestamo_Clase3_
 
         public void DepositMoney(decimal amount)
         {
-            if(amount>0)
+            if (amount > 0)
             {
                 this.amount += amount;
             }
@@ -54,13 +53,13 @@ namespace Ejercicio_Prestamo_Clase3_
 
         public void ExtractMoney(decimal amount)
         {
-            decimal actualAmount = GetAmount();           
+            decimal actualAmount = GetAmount();
             this.amount = actualAmount - amount;
         }
 
         public string ShowData()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.AppendLine("Datos de la cuenta");
             sb.AppendLine($"Razon social {GetOwner()}");
             sb.AppendLine($"Dinero en su cuenta ${GetAmount()}");

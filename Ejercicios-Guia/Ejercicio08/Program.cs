@@ -16,7 +16,7 @@ namespace Ejercicio08
         {          
             int x;
             int y;
-
+         
             Console.WriteLine("Ingrese un numero que represente la altura del triangulo deseada.");
 
             if (int.TryParse(Console.ReadLine(), out int triangleSize))
