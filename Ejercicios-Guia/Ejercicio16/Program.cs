@@ -7,6 +7,7 @@ Ayudarse con las funcionalidades del tipo DateTime para resolver el ejercicio.*/
 
 
 using System.Globalization;
+using System.Linq.Expressions;
 
 namespace Ejercicio16
 {
@@ -14,7 +15,7 @@ namespace Ejercicio16
     {
         static void Main(string[] args)
         {
-
+         
             Console.WriteLine("Ingrese una fecha (formato dd/MM/yyyy):");
 
             if (DateTime.TryParseExact(Console.ReadLine(), "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date))
@@ -25,7 +26,7 @@ namespace Ejercicio16
                 }
                 else
                 {
-                    Console.WriteLine(CalculateDays(date));
+                    Console.WriteLine(DaysSinceDate(date));
                 }
 
             }
@@ -35,28 +36,27 @@ namespace Ejercicio16
             }
         }
 
-        public static DateTime CalculateDays(DateTime date)
+        public static int DaysSinceDate(DateTime date)
         {
-            int year = 365;
-            int days;
+            TimeSpan timeSpan = DateTime.Now - date;
+            int days = timeSpan.Days;
 
-           days = DateTime.DaysInMonth(date.Year,date.Month);
-            Console.WriteLine(days);
+            int leapYears = (date.Year % 4 == 0 && (date.Year % 100 != 0 || date.Year % 400 == 0)) ? 1 : 0;
+            int leapDays = leapYears * (DateTime.IsLeapYear(DateTime.Now.Year) ? 1 : 0);
 
-            if (ValidateLeapYear(date))
-            {
-
-            }
-            return date;
+            return days - leapDays;
         }
 
-        public static bool ValidateLeapYear(DateTime date)
+
+      /*  public static bool ValidateLeapYear(DateTime date)
         {
             if (date.Year % 4 == 0 && (date.Year % 100 != 0 || date.Year % 400 == 0))
             {
                 return true;
             }
             return false;
-        }
+        }*/
     }
 }
+
+
