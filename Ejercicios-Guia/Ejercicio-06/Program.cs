@@ -8,26 +8,28 @@ namespace Ejercicio_06
     {
         static void Main(string[] args)
         {
-
             int year = 0;
-            bool f = true;
+            bool validYear = false;
 
-            do
+            while (!validYear)
             {
-                string numberString = Console.ReadLine();
-                int.TryParse(numberString, out year);
+                Console.WriteLine("Ingrese un año:");
+                validYear = int.TryParse(Console.ReadLine(), out year);
 
-                if (year % 4 == 0 && year % 400 == 0)
+                if (!validYear)
                 {
-                    Console.WriteLine("Es anio bisiesto");
+                    Console.WriteLine("El valor ingresado no es un número válido.");
+                }
+                else if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
+                {
+                    Console.WriteLine("Es un año bisiesto.");
                 }
                 else
                 {
-                    Console.WriteLine("No es anio bisiesto");
+                    Console.WriteLine("No es un año bisiesto.");
                 }
+            }
 
-            } while (f);
-       
         }
     }
 }

@@ -12,22 +12,40 @@ IMPORTANTE
 NO utilizar los atajos del lenguaje, hacerlo mediante estructuras de iteración y selección.*/
 namespace Ejercicio11
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            int number = 28;
-            int result;
+            bool keep = true;
+            int number;
             do
             {
-                result = number / 2;
+                Console.WriteLine("Elija una opcion.\n 1-Decimal a Binario.\n 2-Binario a Decimal.\n 3-Salir.");
 
-                number -= result;
-
-                Console.WriteLine(result);
-            } while (result % 2 == 0 );
-
-            Console.WriteLine("Hello, World!");
-        }
+                if (int.TryParse(Console.ReadLine(), out number))
+                {
+                    switch (number)
+                    {
+                        case 1:
+                            Console.WriteLine("Ingrese un numero a convertir en binario.");
+                            if (int.TryParse(Console.ReadLine(), out number))
+                            {
+                                Console.WriteLine($"El numero: {number} es: {Converter.CovertDecimalToBinary(number)} en binario.");
+                            }
+                            break;
+                        case 2:
+                            Console.WriteLine("Ingrese un numero binario a convertir en decimal.");
+                            if (int.TryParse(Console.ReadLine(), out number))
+                            {
+                                Console.WriteLine(Converter.ConvertBinaryToDecimal(number));
+                            }
+                            break;
+                        case 3:
+                            keep = false;
+                            break;
+                    }
+                }
+            } while (keep);
+        }  
     }
 }
