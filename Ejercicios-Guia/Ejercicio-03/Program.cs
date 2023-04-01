@@ -7,6 +7,8 @@ Al finalizar, preguntar al usuario si desea volver a operar. Si la respuesta es 
 
 Utilizar sentencias de iteración, selectivas y el operador módulo (%).*/
 using System;
+using System.Text;
+
 namespace Ejercicio_03
 {
     internal class Program
@@ -17,7 +19,7 @@ namespace Ejercicio_03
             string numberString;
             int number;
             bool isPrime;
-            bool f = true;          
+            bool cylce = true;
 
             do
             {
@@ -35,7 +37,7 @@ namespace Ejercicio_03
                 Console.WriteLine("Numeros primos: ");
                 do
                 {
-                 
+
                     isPrime = ValidatePrimeNumber(number);
 
 
@@ -49,18 +51,14 @@ namespace Ejercicio_03
 
                 } while (number != 0 && number >= 0);
 
-            } while (f);
+            } while (cylce);
 
 
 
-            static bool ValidatePrimeNumber(int number)            {
-                if (number < 2)
-                {
-                    return false;
-                }
+            static bool ValidatePrimeNumber(int number)
+            {
                 for (int i = 2; i < number; i++)
                 {
-                   // Console.WriteLine("I {0} NUMERO {1}", i, number);
                     if (number % i == 0)
                     {
                         return false;
@@ -69,18 +67,26 @@ namespace Ejercicio_03
                 return true;
             }
 
-            static bool ValidateNumber(string input, double number)
+         /* static string ListPrimeNumbers(int to)
             {
 
-                if (double.TryParse(input, out number))
+                StringBuilder sb = new();
+
+                for (int i = 2; i <= to; i++)
                 {
-                    return false;
+                    if (ValidatePrimeNumber(i))
+                    {
+                        sb.Append($"{i}, ");
+                    }
                 }
-                else
-                {
-                    return true;
-                }
-            }
+
+                return sb.ToString();
+
+            }*/
+
+
+
+          
         }
     }
 }

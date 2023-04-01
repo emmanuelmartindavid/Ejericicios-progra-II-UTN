@@ -15,6 +15,7 @@ Utilizar variables escalares, NO utilizar vectores/arrays.
  */
 
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
 
 namespace Ejercicio09
 {
@@ -23,7 +24,6 @@ namespace Ejercicio09
         //ATRIBUTOS ESTATICOS DE CLASS PROGRAM
         private static int maximus;
         private static int minimus;
-
         static void Main(string[] args)
         {
             short counter = 0;
@@ -34,7 +34,6 @@ namespace Ejercicio09
             minimus = int.MaxValue;
             maximus = int.MinValue;
       
-
             Console.WriteLine("Ingrese 10 numeros entre el -100 y el 100, por favor.");
             for (int i = 0; i < 10; i++)
             {
@@ -44,18 +43,15 @@ namespace Ejercicio09
                     {
                         counter++;
                         total += number;
-
-                        if(counter > 0)
-                        {
-                            average = CalculateAverage(total, counter);
-                        }
-
                         EvaluateMaximus(number);
-                        EvaluateMinimus(number);          
+                        EvaluateMinimus(number);
+                        average = CalculateAverage(total, counter);
+
                     }
                     else
                     {
                         Console.WriteLine(number + "\nNo esta en el rango");
+                        i--;
                     }
                 }
                 else
@@ -63,25 +59,21 @@ namespace Ejercicio09
                     Console.WriteLine("Ingrese bien los datos, por favor.");
                     break;
                 }
-                if (i == 9)
-                {
-                    Console.WriteLine($"Numero minimo: {minimus}");
-                    Console.WriteLine($"Numero maximo: {maximus}");
-                    Console.WriteLine($"Promedio: {average:#.00}");
-                    break;
-                }
-            }
+            }            
+            Console.WriteLine(ShowData(minimus, maximus, average));
         }
+
         static decimal CalculateAverage(int numbers, int divider)
         {
-            decimal average;
-
-            average = (decimal)numbers / divider;
-
+            decimal average = 0;
+            if(divider > 0)
+            {
+                average = (decimal)numbers / divider;
+            }
             return average;
         }
 
-        public static void EvaluateMaximus(int value)
+        static void EvaluateMaximus(int value)
         {
             if (value > maximus)
             {
@@ -89,12 +81,23 @@ namespace Ejercicio09
             }
         }
 
-        public static void EvaluateMinimus(int value)
+        static void EvaluateMinimus(int value)
         {
             if (value < minimus)
             {
                 minimus = value;
             }
+        }
+
+        static string ShowData(int minimus, int maximus, decimal average)
+        {
+            StringBuilder sb = new ();            
+
+            sb.AppendLine($"Numero minimo: {minimus}");
+            sb.AppendLine($"Numero maximo: {maximus}");
+            sb.AppendLine($"Promedio: {average:#.00}");
+
+            return sb.ToString();
         }
     }
 }

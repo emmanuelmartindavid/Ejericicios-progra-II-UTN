@@ -34,7 +34,7 @@ namespace Ejercicio13
         {
             int i = 0;
             int result;
-            StringBuilder sb = new();
+            StringBuilder sb = new StringBuilder();
             do
             {
                 i++;

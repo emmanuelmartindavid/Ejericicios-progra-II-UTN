@@ -9,15 +9,7 @@ namespace Ejercicio_04
     {
         static void Main()
         {
-            /* double[] numbers = { 2, 3, 5, 7 };
-             double[] perfectNumbers = new double[4];
-
-             for (int i = 0; i < 4; i++)
-             {
-                 //NUMERO PEFECTO = 2^n-1*2^n(-1)
-                 perfectNumbers[i] = Math.Pow(2, numbers[i]-1)*(Math.Pow(2, numbers[i])-1);
-                 Console.WriteLine(perfectNumbers[i]);
-             }*/
+           
             int number = 1;
             int NumbersFound = 0;
 

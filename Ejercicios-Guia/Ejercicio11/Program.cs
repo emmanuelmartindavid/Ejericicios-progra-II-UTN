@@ -16,36 +16,35 @@ namespace Ejercicio11
     {
         static void Main(string[] args)
         {
-            bool keep = true;
-            int number;
+            bool confirmExit = true;
             do
             {
                 Console.WriteLine("Elija una opcion.\n 1-Decimal a Binario.\n 2-Binario a Decimal.\n 3-Salir.");
 
-                if (int.TryParse(Console.ReadLine(), out number))
+                if (int.TryParse(Console.ReadLine(), out int option))
                 {
-                    switch (number)
+                    switch (option)
                     {
                         case 1:
                             Console.WriteLine("Ingrese un numero a convertir en binario.");
-                            if (int.TryParse(Console.ReadLine(), out number))
+                            if (int.TryParse(Console.ReadLine(), out int integerNumber))
                             {
-                                Console.WriteLine($"El numero: {number} es: {Converter.CovertDecimalToBinary(number)} en binario.");
+                                Console.WriteLine(Converter.ShowDataConverted(option, integerNumber));
                             }
                             break;
                         case 2:
                             Console.WriteLine("Ingrese un numero binario a convertir en decimal.");
-                            if (int.TryParse(Console.ReadLine(), out number))
+                            if (int.TryParse(Console.ReadLine(), out int binaryNumber))
                             {
-                                Console.WriteLine(Converter.ConvertBinaryToDecimal(number));
+                                Console.WriteLine(Converter.ShowDataConverted(option, binaryNumber));
                             }
                             break;
                         case 3:
-                            keep = false;
+                            confirmExit = false;
                             break;
                     }
                 }
-            } while (keep);
+            } while (confirmExit);
         }  
     }
 }

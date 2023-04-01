@@ -21,8 +21,7 @@ Utilizar variables escalares, NO utilizar vectores/arrays.
 namespace Ejercicio09
 {
     internal static class Validator
-    {
-      
+    {      
         public static bool ValidateRange(int value, int minimus, int maximus)
         {
             return value >= minimus && value <= maximus;

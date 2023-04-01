@@ -21,8 +21,7 @@ namespace Ejercicio_01
             for (i = 0; i < 5; i++)
             {
 
-               if( int.TryParse(Console.ReadLine(), out int number))
-
+               if(int.TryParse(Console.ReadLine(), out int number))
                 {
                     total += number;
                     average = CalculateAverage(total);

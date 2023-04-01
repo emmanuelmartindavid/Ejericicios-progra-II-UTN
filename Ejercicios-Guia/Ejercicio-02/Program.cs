@@ -11,7 +11,7 @@ namespace Ejercicio_02
         {
             double square;
             double qube;      
-            double number = 0;
+            double number;
 
             do
             {
@@ -19,10 +19,21 @@ namespace Ejercicio_02
 
             } while (!double.TryParse(Console.ReadLine(), out number) || number < 0);
 
-            square = Math.Pow(number, 2);
-            qube = Math.Pow(number, 3);
-            Console.WriteLine("El cuadrado de {0} es {1}", number, square);
-            Console.WriteLine("El cubo de {0} es {1}", number, qube);
+            square = CalculateQube(number);
+            qube = CalculateQube(number);    
+            Console.WriteLine($"El cuadrado de {number} es {square}");
+            Console.WriteLine($"El cubo de {number} es {qube}");
+
+        }
+
+        static public double CalculateSquare(double number)
+        {
+            return Math.Pow(number, 2);
+        }
+
+        static public double CalculateQube(double number)
+        {
+            return Math.Pow(number, 3);
         }
     }
 }

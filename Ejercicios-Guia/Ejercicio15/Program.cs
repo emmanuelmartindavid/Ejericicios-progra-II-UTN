@@ -10,14 +10,16 @@ namespace Ejercicio15
     internal class Program
     {
         static void Main(string[] args)
-        {
-            double hypotenuse;
+        {       
             double triangleBase= 3;
-            double triangleHeight = 4;
+            double triangleHeight = 4;        
 
-            hypotenuse = Math.Sqrt(Math.Pow(triangleBase, 2) + Math.Pow(triangleHeight, 2));
+            Console.WriteLine($"La hipotenusa es: {CalculateHypotenuse(triangleBase, triangleHeight):#.00}");
+        }
 
-            Console.WriteLine($"La hipotenusa es: {hypotenuse:#.00}");
+        public static double CalculateHypotenuse(double triangleBase, double triangleHeight)
+        {
+            return Math.Sqrt(Math.Pow(triangleBase, 2) + Math.Pow(triangleHeight, 2)); 
         }
     }
 }

@@ -9,13 +9,13 @@ namespace Ejercicio17
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(CalulateFactorial(9));
+            Console.WriteLine(CalulateFactorial(3));
         }
 
         public static int CalulateFactorial(int number)
         {
             int i = number;
-            if (number == 0)
+            if (number == 0 || number == 1)
             {
                 return 1;
             }
@@ -29,7 +29,7 @@ namespace Ejercicio17
 
         /*public static int CalculateFactorialRecursive(int number)
         {
-            if (number == 1)
+            if (number == 0 || number == 1)
             {
                 return 1;
             }
@@ -40,6 +40,10 @@ namespace Ejercicio17
         /*public static int CalculateFactorialFor(int number)
         {
             int factorial = 1;
+            if (number == 0 || number == 1)
+            {
+                return 1;
+            }
 
             for (int i = number; i > 0; i--)
             {

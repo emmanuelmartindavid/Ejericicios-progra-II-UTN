@@ -20,7 +20,7 @@ namespace Ejercicio12
         static void Main(string[] args)
         {
             char operand = ' ';
-            bool keep = true;
+            bool confirmExit = true;
 
             do
             {
@@ -36,7 +36,7 @@ namespace Ejercicio12
 
                         if (operand == '+' || operand == '-' || operand == '*' || operand == '/')
                         {
-                            Console.WriteLine($"\nResultado: {Calculator.Calculate(firstOperand, secondOperand, operand):#.00}");
+                            Console.WriteLine($"\n{Calculator.ShowDataCalculator(firstOperand, secondOperand, operand)}");
                         }
                         else
                         {
@@ -46,7 +46,7 @@ namespace Ejercicio12
                     }
                 }
 
-            } while (keep);
+            } while (confirmExit);
 
         }
     }

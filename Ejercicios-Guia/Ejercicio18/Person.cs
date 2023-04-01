@@ -58,7 +58,7 @@ namespace Ejercicio18
             }
             return age;
         }
-
+        
         private static string ValidateAgeMajority(DateTime birthDate)
         {
             int age = Person.CalculateAge(birthDate);
@@ -72,7 +72,7 @@ namespace Ejercicio18
 
         public string ShowDataPerson()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new ();
 
             sb.AppendLine($"{this.name} con dni: {this.dni} tiene {CalculateAge(this.birthDate)} anios de edad, siendo {ValidateAgeMajority(this.birthDate)}");
             

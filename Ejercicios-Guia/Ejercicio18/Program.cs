@@ -26,11 +26,9 @@ namespace Ejercicio18
 
             Person emma = new("Emma", birth, "38843456");
 
-            
-
-
-
+           
             Console.WriteLine(emma.ShowDataPerson());
+            Console.ReadLine();
         }
     }
 }

@@ -10,14 +10,14 @@ namespace Ejercicio10
     {
         static void Main(string[] args)
         {
-            bool x = true;
-
+            bool confirExit = true;
+          
             do
             {
                 Console.WriteLine("Ingrese dos numeros.");
-                if (int.TryParse(Console.ReadLine(), out int number1) && (int.TryParse(Console.ReadLine(), out int number2)))
-                {
-                   Console.WriteLine($"La suma de {number1} y {number2} es {number2 + number1}");  
+                if (int.TryParse(Console.ReadLine(), out int firstOperand) && (int.TryParse(Console.ReadLine(), out int secondOperand)))
+                { 
+                    Console.WriteLine($"La suma de {firstOperand} y {secondOperand} es {Sum(firstOperand, secondOperand)}");
                 }
                 else
                 {
@@ -25,15 +25,20 @@ namespace Ejercicio10
                     break;
                 }
                 Console.WriteLine("Desea continuar?  Ingrese 'S' para salir del programa.");
-                if (Validator.ValidateAnswer(Console.ReadLine()))
+                if (Validator.ValidateAnswer(Console.ReadLine().ToLower()))
                 {
-                    x=false;
+                    confirExit = false;
                 }
 
-            } while (x);
+            } while (confirExit);
 
         }
 
-        
+        static public int Sum(int firstOperand, int secondOperand)
+        {
+            return firstOperand + secondOperand;
+        }
+
+
     }
 }

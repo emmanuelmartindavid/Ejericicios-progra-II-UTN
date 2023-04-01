@@ -34,5 +34,21 @@ namespace Ejercicio11
             }
             return decimalNumber;
         }
+
+        public static string ShowDataConverted(int option, int number)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            if (option == 1)
+            {
+                sb.AppendLine($"El numero: {number} es: {CovertDecimalToBinary(number)} en binario.");
+            }
+            else if (option == 2) 
+            {
+                sb.AppendLine($"El numero binario: {number} es: {ConvertBinaryToDecimal(number)} en decimal.");
+            }
+
+            return sb.ToString();
+        }
     }
 }
