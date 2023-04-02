@@ -8,7 +8,7 @@ namespace Logic
 {
     public class Input
     {
-        public static string CargarNombre()
+        public static string LoadName()
         {
             string input;
             Console.WriteLine("Ingrese su nombre: ");
@@ -17,26 +17,26 @@ namespace Logic
 
             if (string.IsNullOrEmpty(input) || string.IsNullOrWhiteSpace(input))
             {
-                return CargarNombre();
+                return LoadName();
             }
             return input.Trim();
         }
 
-        public static int[] CargarKilometros()
+        public static int[] LoadKilometers()
         {
-            int[] kilometros = new int[7];
+            int[] kilometers = new int[7];
 
             Console.WriteLine("Ingrese los kilometros: ");
-            for (int i = 0; i < kilometros.Length; i++)
+            for (int i = 0; i < kilometers.Length; i++)
             {
                 if (!int.TryParse(Console.ReadLine(), out int input))
                 {
-                    return CargarKilometros();
+                    return LoadKilometers();
                 }
-                kilometros[i] = input;
+                kilometers[i] = input;
 
             }
-            return kilometros;
+            return kilometers;
         }
     }
 }

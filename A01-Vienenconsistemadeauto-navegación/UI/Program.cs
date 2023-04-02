@@ -41,8 +41,8 @@ namespace UI
 
             TruckDriver[] truckDrivers = TruckDriver.CreateTruckDrivers();
 
-            string respuesta = TruckDriver.ShowDataDriver(truckDrivers);
-            Console.WriteLine(respuesta);
+            string dataDrivers = TruckDriver.ShowDataDriver(truckDrivers);
+            Console.WriteLine(dataDrivers);
 
         }
 

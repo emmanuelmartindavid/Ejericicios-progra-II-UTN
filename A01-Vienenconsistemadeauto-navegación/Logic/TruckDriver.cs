@@ -4,13 +4,13 @@ namespace Logic
 {
     public class TruckDriver
     {
-        public string NameDriver;
+        public string DriverName;
 
         public int[] WorkDays;
 
-        public TruckDriver(string nameDriver, int[] workDays)
+        public TruckDriver(string driverName, int[] workDays)
         {
-            NameDriver = nameDriver;
+            DriverName = driverName;
             WorkDays = workDays;
         }
 
@@ -19,72 +19,72 @@ namespace Logic
             return WorkDays.Sum();
         }
 
-        public int CalculateKilometersPerday(int day)
+        public int CalculateKilometersPerDay(int day)
         {
             return WorkDays[day - 1];
         }
 
-        public static TruckDriver DevolverConductorMayorKmSemana(TruckDriver[] conductores)
+        public static TruckDriver GetMaxTruckDriverPerWeek(TruckDriver[] truckDrivers)
         {
             int max = 0;
-            TruckDriver conductorMayor = null;
+            TruckDriver maxtruckDriver = null;
 
 
-            foreach (TruckDriver item in conductores)
+            foreach (TruckDriver item in truckDrivers)
             {
                 if (item.CalculateTotalKmPerDriver() > max)
                 {
                     max = item.CalculateTotalKmPerDriver();
-                    conductorMayor = item;
+                    maxtruckDriver = item;
                 }
             }
-            return conductorMayor;
+            return maxtruckDriver;
         }
 
 
-        public static TruckDriver DevolverConductorMayorKmPerDia(TruckDriver[] conductores, int dia)
+        public static TruckDriver GetMaxTruckDriverPerDay(TruckDriver[] truckDrivers, int dia)
         {
             int max = 0;
-            TruckDriver conductorMayor = null;
+            TruckDriver maxtruckDriver = null;
 
 
-            foreach (TruckDriver item in conductores)
+            foreach (TruckDriver item in truckDrivers)
             {
-                int kms = item.CalculateKilometersPerday(dia);
+                int kms = item.CalculateKilometersPerDay(dia);
                 if (kms > max)
                 {
                     max = kms;
-                    conductorMayor = item;
+                    maxtruckDriver = item;
                 }
             }
-            return conductorMayor;
+            return maxtruckDriver;
         }
 
         public static TruckDriver[] CreateTruckDrivers()
         {
-            TruckDriver[] conductores = new TruckDriver[3];
-            int[] kilometros = new int[7];
+            TruckDriver[] truckDrivers = new TruckDriver[3];
+            int[] kilometers = new int[7];
 
-            for (int i = 0; i < conductores.Length; i++)
+            for (int i = 0; i < truckDrivers.Length; i++)
             {
-                string nombre = Input.CargarNombre();
-                kilometros = Input.CargarKilometros();
+                string name = Input.CargarNombre();
+                kilometers = Input.CargarKilometros();
 
-                conductores[i] = new TruckDriver(nombre, kilometros);
+                truckDrivers[i] = new TruckDriver(name, kilometers);
             }
-            return conductores;
+            return truckDrivers;
         }
 
-        public static string ShowDataDriver(TruckDriver[] conductores)
+        public static string ShowDataDriver(TruckDriver[] truckDrivers)
         {
             StringBuilder sb = new StringBuilder();
-            TruckDriver conductorMayor = TruckDriver.DevolverConductorMayorKmSemana(conductores);
-            TruckDriver conductorMayor3 = TruckDriver.DevolverConductorMayorKmPerDia(conductores, 3);
-            TruckDriver conductorMayor5 = TruckDriver.DevolverConductorMayorKmPerDia(conductores, 5);
+            TruckDriver conductorMayor = TruckDriver.GetMaxTruckDriverPerWeek(truckDrivers);
+            TruckDriver conductorMayor3 = TruckDriver.GetMaxTruckDriverPerDay(truckDrivers, 3);
+            TruckDriver conductorMayor5 = TruckDriver.GetMaxTruckDriverPerDay(truckDrivers, 5);
 
-            sb.AppendLine($"El conductor que realizó mas kilometrajes fue: {conductorMayor.NameDriver} y la cantidad fue: {conductorMayor.CalculateTotalKmPerDriver()}");
-            sb.AppendLine($"El conductor que realizó mas kilometrajes en el tercer fue: {conductorMayor3.NameDriver} y la cantidad fue: {conductorMayor3.CalculateKilometersPerday(3)}");
-            sb.AppendLine($"El conductor que realizó mas kilometrajes fue: {conductorMayor5.NameDriver} y la cantidad fue: {conductorMayor5.CalculateKilometersPerday(5)}");
+            sb.AppendLine($"El conductor que realizó mas kilometrajes fue: {conductorMayor.DriverName} y la cantidad fue: {conductorMayor.CalculateTotalKmPerDriver()}");
+            sb.AppendLine($"El conductor que realizó mas kilometrajes en el tercer fue: {conductorMayor3.DriverName} y la cantidad fue: {conductorMayor3.CalculateKilometersPerDay(3)}");
+            sb.AppendLine($"El conductor que realizó mas kilometrajes fue: {conductorMayor5.DriverName} y la cantidad fue: {conductorMayor5.CalculateKilometersPerDay(5)}");
 
             return sb.ToString();
 
