@@ -37,16 +37,12 @@ namespace Logic
         {
             string species = Input.ValidateString("Ingrese la especie de la mascota: ", 4, 10);
             string name = Input.ValidateString("Ingrese el nombre de la mascota: ", 4, 10);
-            DateTime birthDate = Input.ValidateDate("Ingrese la fecha de nacimiento de la mascota: ");
-            Pet pet = new Pet(species, name, birthDate);
-            //add the vaccine ask
-            Console.WriteLine("Desea agregar una vacuna? (s/n)");
-            string answer = Console.ReadLine();
-            if (answer == "s")
+            DateTime birthDate = Input.ValidateDate("Ingrese la fecha de nacimiento de la mascota (dd/mm/yyyy): ");
+            Pet pet = new (species, name, birthDate);      
+            while (Input.ValidateAnswer("Desea agregar una vacuna? (s/n)"))
             {
                 pet.AddVaccine();
             }
-
             return pet;
         }
 
@@ -54,8 +50,8 @@ namespace Logic
         public string GetPetInfo()
         {
             StringBuilder sb = new();
-            sb.AppendLine($"Pet: {Species} - {Name} - {BirthDate}");
-            sb.AppendLine("Vaccines:");
+            sb.AppendLine($"Mascota. \nEspecie: {Species} - Nombre: {Name} -Cumpleanito: {BirthDate}");
+            sb.AppendLine("Vacunas:");
             foreach (Vaccine vaccine in Vaccines)
             {
                 sb.AppendLine(vaccine.ToString());

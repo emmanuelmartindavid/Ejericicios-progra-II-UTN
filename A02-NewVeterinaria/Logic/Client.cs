@@ -40,10 +40,8 @@ namespace Logic
             string adress = Input.ValidateAdress("Ingrese el domicilio del cliente: ");
             string phoneNumber = Input.ValidatePhoneNumber("Ingrese el telefono del cliente: ");
             Client client = new(adress, name, surname, phoneNumber);
-            //add the pet ask
-            Console.WriteLine("Desea agregar una mascota? (s/n)");
-            string answer = Console.ReadLine();
-            if (answer == "s")
+      
+            while (Input.ValidateAnswer("Desea agregar una mascota? (s/n)"))
             {
                 Pet pet = Pet.AddPet();
 

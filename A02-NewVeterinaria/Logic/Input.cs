@@ -65,6 +65,12 @@ namespace Logic
             return input;
         }
 
+        public static bool ValidateAnswer(string message)
+        {
+            Console.WriteLine(message);
+            return Console.ReadLine().ToLower() == "s";
+        }
+
 
     }
 }
