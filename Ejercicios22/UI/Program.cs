@@ -2,53 +2,34 @@
 {
 
     using System;
+    using System.Drawing;
 
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
-            Console.SetWindowSize(80, 40);
-            DrawTree(10, 40, 39, -Math.PI / 2);
+           //call the method to draw the fractal tree
+            DrawTree(40, 20, 10, 0, 10);
             Console.ReadLine();
+         
         }
 
-        static void DrawTree(int depth, int x1, int y1, double angle)
+        //Metho to draw a fractal tree in the console. System.ArgumentOutOfRangeException: 'The value must be greater than or equal to zero and less than the console's buffer size 
+        //in that dimension. Parameter name: top'
+        public static void DrawTree(int x, int y, int length, double angle, int depth)
         {
-            if (depth == 0) return;
-
-            int x2 = x1 + (int)(Math.Cos(angle) * depth * 10.0);
-            int y2 = y1 + (int)(Math.Sin(angle) * depth * 10.0);
-
-            int clampedX1 = Math.Clamp(x1, 0, Console.WindowWidth - 1);
-            int clampedY1 = Math.Clamp(y1, 0, Console.WindowHeight - 1);
-
-            Console.SetCursorPosition(clampedX1, clampedY1);
-            Console.Write("*");
-
-            DrawLine(x1, y1, x2, y2);
-
-            DrawTree(depth - 1, x2, y2, angle - Math.PI / 4);
-            DrawTree(depth - 1, x2, y2, angle + Math.PI / 4);
+            if (depth == 0)
+                return;
+            int x2 = x + (int)(Math.Cos(angle) * length);
+            int y2 = y + (int)(Math.Sin(angle) * length);
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine("*");
+            DrawTree(x2, y2, (int)(length * 0.8), angle + Math.PI / 4, depth - 1);
+            DrawTree(x2, y2, (int)(length * 0.8), angle - Math.PI / 4, depth - 1);
         }
-
-        static void DrawLine(int x1, int y1, int x2, int y2)
-        {
-            double distance = Math.Sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-            double angle = Math.Atan2(y2 - y1, x2 - x1);
-            double slope = (y2 - y1) / (double)(x2 - x1);
-
-            for (int i = 1; i <= (int)distance; i++)
-            {
-                int x = (int)(x1 + i * Math.Cos(angle));
-                int y = (int)(y1 + i * Math.Sin(angle) * slope);
-
-                int clampedX = Math.Clamp(x, 0, Console.WindowWidth - 1);
-                int clampedY = Math.Clamp(y, 0, Console.WindowHeight - 1);
-
-                Console.SetCursorPosition(clampedX, clampedY);
-                Console.Write("#");
-            }
-        }
+        
+  
     }
+   
 
 }

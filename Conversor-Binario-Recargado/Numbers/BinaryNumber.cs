@@ -15,6 +15,7 @@ namespace Numbers
         {
             this.number = number;
         }
+       
         //implicit and explicit conversion
         public static implicit operator BinaryNumber(string number)
         {
