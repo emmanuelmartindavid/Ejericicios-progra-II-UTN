@@ -50,11 +50,12 @@ namespace UI
             string binario = (string)objBinario;
             double numeroDecimal = (double)objDecimal;
 
-
-            Console.WriteLine(binario);
-            Console.WriteLine(numeroDecimal);
-
-            BinaryNumber binary = "1001";
+            Console.WriteLine("================================================");
+            Console.WriteLine($"SOBRECARGA EXPLICITA DE OBJETO BINARIO A STRING: {binario}");
+            Console.WriteLine($"SOBRECARGA EXPLICITA DE OBJETO DECIMAL A DOUBLE: {numeroDecimal}");
+            Console.WriteLine("================================================");
+            Console.WriteLine();
+            BinaryNumber binary = "101";
             DecimalNumber decimalNumber = 9;
             bool result3 = binary == decimalNumber;
             bool result4 = binary != decimalNumber;
@@ -62,12 +63,13 @@ namespace UI
             double result6 = (double)(decimalNumber - binary);
             bool result7 = decimalNumber == binary;
             bool result8 = decimalNumber != binary;
-            Console.WriteLine(result3);
-            Console.WriteLine(result4);
-            Console.WriteLine(result5);
-            Console.WriteLine(result6);
-            Console.WriteLine(result7);
-            Console.WriteLine(result8);
+            Console.WriteLine($"BINARIO == DECIMAL: {result3}");
+            Console.WriteLine($"BINARIO != DECIMAL: {result4}");
+            Console.WriteLine($"SUMA A DOUBLE: {result5}");
+            Console.WriteLine($"RESTA A DOBULE: {result6}");
+            Console.WriteLine($"DECIMAL == BINARIO: {result7}");
+            Console.WriteLine($"DECIMAL != BINARIO: {result8}");
+   
         }
     }
 }
