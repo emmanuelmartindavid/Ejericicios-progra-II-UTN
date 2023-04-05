@@ -4,7 +4,7 @@ namespace Logic
 {
     public class Adder
     {
-        public int sumCount;
+        private int sumCount;
 
         public Adder(int a)
         {

@@ -3,7 +3,8 @@
     public class Peso
     {
         private double _amount;
-        static double _dollarExchRate;
+        public double Amount { get => _amount; set => _amount = value; }
+        private static double _dollarExchRate;
 
         public Peso()
         {
@@ -12,7 +13,7 @@
 
         public Peso(double amount)
         {
-            _amount = amount;
+            Amount = amount;
         }
 
         public Peso(double amount, double Rate) : this(amount)
@@ -22,7 +23,7 @@
 
         public double GetAmount()
         {
-            return _amount;
+            return Amount;
         }
 
         public static double GetRate()
@@ -36,7 +37,7 @@
         }
         public static explicit operator Dolar(Peso p)
         {
-            return new Dolar(p._amount / Peso.GetRate());
+            return new Dolar(p.Amount / Peso.GetRate());
         }
 
         public static implicit operator Peso(double p)
@@ -46,52 +47,52 @@
 
         public static Peso operator +(Peso p, Dolar d)
         {
-            return new Peso(p._amount + ((Peso)d)._amount);
+            return new Peso(p.Amount + ((Peso)d).Amount);
         }
 
         public static Peso operator +(Peso p, Euro e)
         {
-            return new Peso(p._amount + ((Peso)e)._amount);
+            return new Peso(p.Amount + ((Peso)e).Amount);
         }
 
         public static Peso operator -(Peso p, Dolar d)
         {
-            return new Peso(p._amount - ((Peso)d)._amount);
+            return new Peso(p.Amount - ((Peso)d).Amount);
         }
 
         public static Peso operator -(Peso p, Euro e)
         {
-            return new Peso(p._amount - ((Peso)e)._amount);
+            return new Peso(p.Amount - ((Peso)e).Amount);
         }
 
         public static bool operator ==(Peso p, Dolar d)
         {
-            return p._amount == ((Peso)d)._amount;
+            return p.Amount == ((Peso)d).Amount;
         }
 
         public static bool operator ==(Peso p, Euro e)
         {
-            return p._amount == ((Peso)e)._amount;
+            return p.Amount == ((Peso)e).Amount;
         }
 
         public static bool operator ==(Peso a, Peso b)
         {
-            return a._amount == b._amount;
+            return a.Amount == b.Amount;
         }
 
         public static bool operator !=(Peso p, Dolar d)
         {
-            return p._amount != ((Peso)d)._amount;
+            return !(p == d);
         }
 
         public static bool operator !=(Peso p, Euro e)
         {
-            return p._amount != ((Peso)e)._amount;
+            return !(p == e);
         }
 
         public static bool operator !=(Peso a, Peso b)
         {
-            return a._amount != b._amount;
+            return !(a == b);
         }
 
     }

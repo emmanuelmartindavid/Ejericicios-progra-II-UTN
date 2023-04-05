@@ -50,8 +50,6 @@ namespace UI
             Console.WriteLine($"Peso != Dolar: {p != d}");
             Console.WriteLine();
             Console.WriteLine();
-
-
         }
     }
 }

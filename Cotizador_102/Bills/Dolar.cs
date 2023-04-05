@@ -10,7 +10,8 @@ namespace Bills
     public class Dolar
     {
         private double _amount;
-        static double _dollarExchRate;
+        public double Amount { get => _amount;  set => _amount = value; }
+        private static double _dollarExchRate;
 
         public Dolar()
         {
@@ -19,7 +20,7 @@ namespace Bills
 
         public Dolar(double amount)
         {
-            _amount = amount;
+            Amount = amount;
         }
 
         public Dolar(double amount, double Rate) : this(amount)
@@ -30,7 +31,7 @@ namespace Bills
 
         public double GetAmount()
         {
-            return _amount;
+            return Amount;
         }
 
         public static double GetRate()
@@ -40,12 +41,12 @@ namespace Bills
 
         public static explicit operator Euro(Dolar d)
         {
-            return new Euro(d._amount * Euro.GetRate());
+            return new Euro(d.Amount * Euro.GetRate());
         }
 
         public static explicit operator Peso(Dolar d)
         {
-            return new Peso(d._amount * Peso.GetRate());
+            return new Peso(d.Amount * Peso.GetRate());
         }
 
         public static implicit operator Dolar(double d)
@@ -55,44 +56,44 @@ namespace Bills
         //i need to add the implicit and explicit operators for the other classes
         public static Dolar operator +(Dolar d, Euro e)
         {
-            return new Dolar(d._amount + ((Dolar)e)._amount);
+            return new Dolar(d.Amount + ((Dolar)e)._amount);
         }
         public static Dolar operator +(Dolar d, Peso p)
         {
-            return new Dolar(d._amount + ((Dolar)p)._amount);
+            return new Dolar(d.Amount + ((Dolar)p)._amount);
         }
         public static Dolar operator -(Dolar d, Euro e)
         {
-            return new Dolar(d._amount - ((Dolar)e)._amount);
+            return new Dolar(d.Amount - ((Dolar)e).Amount);
         }
         public static Dolar operator -(Dolar d, Peso p)
         {
-            return new Dolar(d._amount - ((Dolar)p)._amount);
+            return new Dolar(d.Amount - ((Dolar)p).Amount);
         }
 
         public static bool operator ==(Dolar d, Euro e)
         {
-            return d._amount == ((Dolar)e)._amount;
+            return d.Amount == ((Dolar)e).Amount;
         }
         public static bool operator ==(Dolar d, Peso p)
         {
-            return d._amount == ((Dolar)p)._amount;
+            return d.Amount == ((Dolar)p).Amount;
         }
         public static bool operator ==(Dolar a, Dolar b)
         {
-            return a._amount == b._amount;
+            return a.Amount == b.Amount;
         }
         public static bool operator !=(Dolar d, Euro e)
         {
-            return d._amount != ((Dolar)e)._amount;
+            return !(d == e);
         }
         public static bool operator !=(Dolar d, Peso p)
         {
-            return d._amount != ((Dolar)p)._amount;
+            return !(d == p);
         }
         public static bool operator !=(Dolar a, Dolar b)
         {
-            return a._amount != b._amount;
+            return !(a == b);
         }
 
     }

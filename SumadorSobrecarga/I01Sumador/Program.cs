@@ -27,7 +27,7 @@ namespace UI
     {
         static void Main(string[] args)
         {
-            Adder sum = new ();
+            Adder sum = new (2);
             Adder sum2 = new (2);
 
             Console.WriteLine($"suma de objetos {sum + sum2}");
@@ -36,7 +36,7 @@ namespace UI
             Console.WriteLine($"Suma de long : {sum.Add("Hola ", "Mundo!")} Sumador {sum.CountSum()}");
             if (sum | sum2)
             {
-                Console.WriteLine("ES true");
+                Console.WriteLine("Son iguales");
             }
             Console.WriteLine($"suma de objetos {sum + sum2}");
         }

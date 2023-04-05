@@ -9,9 +9,9 @@ namespace UI
             ConsoleColor color = ConsoleColor.Blue;
             string draw;
             
-            Boligrafo blueInk = new(color, 100);
+            Boligrafo blueInk = new(color, 10);
 
-            if(blueInk.DrawShape(500, out draw))
+            if(blueInk.DrawShape(2, out draw))
             {
                 Console.ForegroundColor = blueInk.GetColor();
                 Console.WriteLine(draw);
