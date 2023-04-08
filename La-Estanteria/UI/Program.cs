@@ -26,7 +26,7 @@ namespace UI
         static void Main(string[] args)
         {
             // Creo un estante
-            Shelf estante = new (3, 1);
+            Shelf estante = new (4, 1);
 
             // Creo 4 productos
             Product p1 = new("Pepsi", "PESDS97413", (float)18.5);
