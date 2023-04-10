@@ -10,6 +10,10 @@ namespace UI
             Celsius celsiusDegree = new(1);
             Fahrenheit fahrenheitDegree = new(1);
 
+            Console.WriteLine();
+            Console.WriteLine("<===================================================>");
+            Console.WriteLine();
+
             Kelvin auxKelvin = kelvinDegree + celsiusDegree;
             Console.WriteLine($"{kelvinDegree.KelvinDegree} KELVIN + {celsiusDegree.CelsiusDegree} CELSIUS = {auxKelvin.KelvinDegree:#.000} KELVIN");
 
@@ -39,9 +43,6 @@ namespace UI
             Console.WriteLine();
             Console.WriteLine("<===================================================>");
             Console.WriteLine();
-
-
-
         }
     }
 }

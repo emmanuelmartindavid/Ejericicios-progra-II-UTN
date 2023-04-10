@@ -35,9 +35,6 @@ namespace Dregrees
             return kelvinDegree - 273.15m;
         }
 
-        internal static decimal ConvertCelciusToKelvin(object celciusDegree)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }
