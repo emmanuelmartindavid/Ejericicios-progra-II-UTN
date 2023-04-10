@@ -28,6 +28,7 @@ namespace UI
             Client client = Client.AddClient();
 
             Console.WriteLine(client.GetClientInfo());
+            Console.WriteLine("Prueba de GIT");
 
         }
 
