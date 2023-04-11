@@ -9,7 +9,6 @@ namespace Logic
 {
     public class Number
     {
-
         public static ICollection<int> GetRandomCollection()
         {
             Random random = new();
@@ -24,9 +23,7 @@ namespace Logic
                     collection.Add(number);
                 }
             }
-
             return collection;
         }
-
     }
 }

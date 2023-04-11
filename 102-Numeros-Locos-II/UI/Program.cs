@@ -15,17 +15,13 @@ namespace UI
     {
         static void Main(string[] args)
         {
-           
+            Console.WriteLine("[=======================================================]");
             Console.WriteLine(Lista.ShowListData());
             Console.WriteLine("[=======================================================]");
             Console.WriteLine(Pila.ShowStackData());
             Console.WriteLine("[=======================================================]");
             Console.WriteLine(Cola.ShowQueueData());
-
-
-
-
-
+            Console.WriteLine("[=======================================================]");
         }
     }
 }

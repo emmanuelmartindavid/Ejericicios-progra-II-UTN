@@ -15,7 +15,6 @@ namespace Logic
             return filteredQueue;
         }
 
-
         public static string ShowQueueData()
         {
             StringBuilder sb = new();
@@ -23,19 +22,11 @@ namespace Logic
             string decreasingQueue = string.Join("\n", OrderQueue(queueNumbers, true));
             string increasingQueue = string.Join("\n", OrderQueue(queueNumbers, false));
 
-
             sb.AppendLine($"ORDEN DE NUMEROS POSITIVOS DE COLA DE FORMA DECRECIENTE:\n{decreasingQueue}");
             sb.AppendLine("[=======================================================]");
             sb.AppendLine($"ORDEN DE NUMEROS NEGATIVOS DE COLA DE FORMA CRECIENTE:\n{increasingQueue}");
 
-
             return sb.ToString();
         }
-
-
-
-
-
-
     }
 }

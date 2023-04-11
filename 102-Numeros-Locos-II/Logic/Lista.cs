@@ -5,14 +5,11 @@ namespace Logic
 {
     public static class Lista
     {
-
-
         private static List<int> OrderList(List<int> listNumbers, bool state)
         {
             List<int> filteredList = new(state ? listNumbers.Where(n => n > 0).OrderBy(n => -n) : listNumbers.Where(n => n < 0).OrderBy(n => n));
             return filteredList;
         }
-
 
         public static string ShowListData()
         {
@@ -27,16 +24,5 @@ namespace Logic
 
             return sb.ToString();
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 }
