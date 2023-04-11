@@ -4,11 +4,11 @@ namespace Logic
 {
     public class Adder
     {
-        private int sumCount;
+        private int _sumCount;
 
         public Adder(int a)
         {
-            this.sumCount = a;
+            this._sumCount = a;
         }
 
         public Adder() : this(0)
@@ -16,34 +16,34 @@ namespace Logic
 
         public long Add(long a, long b)
         {
-            this.sumCount++;
+            this._sumCount++;
             return a + b;
         }
 
         public string Add(string a, string b)
         {
-            this.sumCount++;
+            this._sumCount++;
             return a + b;
         }
 
         public int CountSum()
         {
-            return this.sumCount;
+            return this._sumCount;
         }
 
         public static explicit operator int(Adder a)
         {
-            return a.sumCount;
+            return a._sumCount;
         }
 
         public static long operator +(Adder a, Adder b)
         {
-            return a.sumCount + b.sumCount;
+            return a._sumCount + b._sumCount;
         }
 
         public static bool operator |(Adder a, Adder b)
         {
-            return a.sumCount == b.sumCount;
+            return a._sumCount == b._sumCount;
         }
     }
 }

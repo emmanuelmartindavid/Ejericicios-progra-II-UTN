@@ -30,6 +30,8 @@ namespace UI
             Adder sum = new (2);
             Adder sum2 = new (2);
 
+            
+
             Console.WriteLine($"suma de objetos {sum + sum2}");
             Console.WriteLine($"Suma de long : {sum2.Add(100, 687)} Sumador {sum2.CountSum()}");
             Console.WriteLine($"suma de objetos {sum + sum2}");

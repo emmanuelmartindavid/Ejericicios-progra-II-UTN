@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Geometria
 {
-    internal class Rectangle
+    public class Rectangle
     {
         private readonly float area;
         private readonly float perimeter;
