@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 /* 
@@ -13,7 +14,7 @@ la cantidad de vueltasRestantes será igual a la cantidadVueltas de Competencia
 y se le asignará un número aleatorio entre 15 y 100 a cantidadCombustible.*/
 namespace Logic
 {
-    internal class Race
+    public class Race
     {
         private short _competitorsAmount;
         private short _lapsAmount;
@@ -25,6 +26,13 @@ namespace Logic
             set => _competitorsAmount = value;
         }
 
+        public short LapsAmount
+        {
+            get => _lapsAmount;
+            set => _lapsAmount = value;
+        }
+
+
         private Race()
         {
             _competitors = new List<Car>();
@@ -32,25 +40,61 @@ namespace Logic
 
         public Race(short lapsAmount, short competitorsAmount) : this()
         {
-            _lapsAmount = lapsAmount;
-            _competitorsAmount = competitorsAmount;
+            LapsAmount = lapsAmount;
+            CompetitorsAmount = competitorsAmount;
         }
 
+        public static bool operator ==(Race race, Car car)
+        {
+            foreach (Car item in race._competitors)
+            {
+                if (item == car)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
 
+        public static bool operator !=(Race race, Car car)
+        {
+            return !(race == car);
+        }
 
-
-
-
-
+        public static bool operator +(Race race, Car car)
+        {
+            if (race._competitors.Count < race.LapsAmount && race != car)
+            {
+                race._competitors.Add(car);
+                car.InRace = true;
+                car.ReamainingLaps = race.LapsAmount;
+                Random random = new Random();
+                car.FuelAmount = (short)random.Next(15, 100);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public string ShowDataRace()
         {
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine("--------CARRERA--------");
+            sb.AppendLine($"COMPETIDORES: {CompetitorsAmount}");
+            foreach (Car car in _competitors)
+            {
+                sb.AppendLine("----------------------");
+                sb.AppendLine(car.ShowCarData());
+                sb.AppendLine("----------------------");
 
+            }
             return sb.ToString();
         }
-
-
-
     }
 }

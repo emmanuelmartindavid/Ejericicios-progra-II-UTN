@@ -31,7 +31,7 @@ namespace Logic
             set => _inRace = value;
         }
 
-        public short ReamainingLeaps
+        public short ReamainingLaps
         {
             get => _remainingLaps;
             set => _remainingLaps = value;
@@ -50,12 +50,9 @@ namespace Logic
         public string ShowCarData()
         {
             StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine("[====================]");
-            sb.AppendLine("");
-            sb.AppendLine("[====================]");
-
-
+            sb.AppendLine($"Auto: {_carNumber}");
+            sb.AppendLine($"Escuderia: {_scuderia}");
+            sb.AppendLine($"Vueltas restantes: {_remainingLaps}");
             return sb.ToString();
         }
 

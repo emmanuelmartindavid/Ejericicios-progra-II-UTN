@@ -14,12 +14,12 @@ namespace Logic
         public short PlayerAmount
         {
             get { return _playerAmount; }
-            set { _playerAmount = value; }
+          
         }
         public string TeamName
         {
             get { return _teamName; }
-            set { _teamName = value; }
+            private set { _teamName = value; }
         }
 
         public List<Player> Players
@@ -36,7 +36,7 @@ namespace Logic
         public Team(short playerAmount, string teamName) : this()
         {
             TeamName = teamName;
-            PlayerAmount = playerAmount;
+            _playerAmount = playerAmount;
         }
 
         public static bool operator ==(Team team, Player player)
