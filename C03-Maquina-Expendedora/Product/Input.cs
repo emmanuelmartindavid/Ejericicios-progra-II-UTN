@@ -37,7 +37,7 @@ namespace Logic
 
 
             Console.WriteLine("*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+");
-            Console.WriteLine($"ELIGIO: {expendingMachine[code]}");
+            Console.WriteLine($"ELIGIO: {expendingMachine[code].Peek()}");
             Console.WriteLine("*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+");
 
 
