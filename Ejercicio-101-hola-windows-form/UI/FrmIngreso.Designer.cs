@@ -28,81 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbl_name = new Label();
-            lbl_lastName = new Label();
-            tb_name = new TextBox();
-            tb_lastName = new TextBox();
-            btn_saludo = new Button();
+            components = new System.ComponentModel.Container();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            menuStrip1 = new MenuStrip();
+            cargarToolStripMenuItem = new ToolStripMenuItem();
+            lb_saludo = new Label();
+            txb_saluda = new TextBox();
+            contextMenuStrip1.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // lbl_name
+            // contextMenuStrip1
             // 
-            lbl_name.AutoSize = true;
-            lbl_name.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_name.Location = new Point(34, 67);
-            lbl_name.Name = "lbl_name";
-            lbl_name.Size = new Size(73, 21);
-            lbl_name.TabIndex = 0;
-            lbl_name.Text = "Nombre";
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1 });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(181, 26);
             // 
-            // lbl_lastName
+            // toolStripMenuItem1
             // 
-            lbl_lastName.AutoSize = true;
-            lbl_lastName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_lastName.Location = new Point(263, 67);
-            lbl_lastName.Name = "lbl_lastName";
-            lbl_lastName.Size = new Size(75, 21);
-            lbl_lastName.TabIndex = 1;
-            lbl_lastName.Text = "Apellido";
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(180, 22);
+            toolStripMenuItem1.Text = "toolStripMenuItem1";
             // 
-            // tb_name
+            // menuStrip1
             // 
-            tb_name.Location = new Point(34, 105);
-            tb_name.Name = "tb_name";
-            tb_name.PlaceholderText = "Ingrese Nombre";
-            tb_name.Size = new Size(130, 23);
-            tb_name.TabIndex = 2;
+            menuStrip1.Items.AddRange(new ToolStripItem[] { cargarToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(445, 24);
+            menuStrip1.TabIndex = 1;
+            menuStrip1.Text = "menuStrip1";
             // 
-            // tb_lastName
+            // cargarToolStripMenuItem
             // 
-            tb_lastName.Location = new Point(263, 105);
-            tb_lastName.Name = "tb_lastName";
-            tb_lastName.PlaceholderText = "Ingrese Apellido";
-            tb_lastName.Size = new Size(147, 23);
-            tb_lastName.TabIndex = 3;
+            cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
+            cargarToolStripMenuItem.Size = new Size(54, 20);
+            cargarToolStripMenuItem.Text = "Cargar";
+            cargarToolStripMenuItem.Click += cargarToolStripMenuItem_Click_1;
             // 
-            // btn_saludo
+            // lb_saludo
             // 
-            btn_saludo.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_saludo.Location = new Point(263, 184);
-            btn_saludo.Name = "btn_saludo";
-            btn_saludo.Size = new Size(147, 30);
-            btn_saludo.TabIndex = 4;
-            btn_saludo.Text = "Saludar";
-            btn_saludo.UseVisualStyleBackColor = true;
+            lb_saludo.AutoSize = true;
+            lb_saludo.Location = new Point(201, 69);
+            lb_saludo.Name = "lb_saludo";
+            lb_saludo.Size = new Size(38, 15);
+            lb_saludo.TabIndex = 2;
+            lb_saludo.Text = "label1";
             // 
-            // Form1
+            // txb_saluda
+            // 
+            txb_saluda.Location = new Point(153, 114);
+            txb_saluda.Name = "txb_saluda";
+            txb_saluda.Size = new Size(128, 23);
+            txb_saluda.TabIndex = 3;
+            // 
+            // FrmIngreso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlDarkDark;
             ClientSize = new Size(445, 240);
-            Controls.Add(btn_saludo);
-            Controls.Add(tb_lastName);
-            Controls.Add(tb_name);
-            Controls.Add(lbl_lastName);
-            Controls.Add(lbl_name);
-            Name = "Form1";
-            Text = "Form1";
+            Controls.Add(txb_saluda);
+            Controls.Add(lb_saludo);
+            Controls.Add(menuStrip1);
+            Name = "FrmIngreso";
+            Text = "Form Ingreso";
+ 
+            contextMenuStrip1.ResumeLayout(false);
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label lbl_name;
-        private Label lbl_lastName;
-        private TextBox tb_name;
-        private TextBox tb_lastName;
-        private Button btn_saludo;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem cargarToolStripMenuItem;
+        private Label lb_saludo;
+        private TextBox txb_saluda;
     }
 }

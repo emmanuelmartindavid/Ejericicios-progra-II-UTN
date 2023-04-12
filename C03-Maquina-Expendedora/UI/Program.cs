@@ -32,7 +32,7 @@ namespace UI
 
             ExpendingMachine expendingMachine = new();
 
-            Input.ChooseProduct(expendingMachine.Products);
+            Console.WriteLine(Input.ChooseProduct(expendingMachine.Products));
 
         }      
     }

@@ -26,32 +26,34 @@ namespace Logic
             return expendingMachine;
         }
 
-        public static void ChooseProduct(Dictionary<int, Product> expendingMachine)
+        public static string ChooseProduct(Dictionary<int, Product> expendingMachine)
         {
+            StringBuilder sb = new();
             ShowProducts(expendingMachine);
+
             while (true)
             {
+                sb.AppendLine("Ingrese el codigo del producto que desea");
+                sb.AppendLine("Ingrese S para salir");
 
-                Console.WriteLine("Ingrese el codigo del producto que desea");
-                Console.WriteLine("Ingrese S para salir");
                 if (int.TryParse(Console.ReadLine(), out int code))
                 {
                     if (expendingMachine.ContainsKey(code))
                     {
-                        Console.WriteLine("*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+");
-                        Console.WriteLine($"ELIGIO: {expendingMachine[code]}");
+                        sb.AppendLine("*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+");
+                        sb.AppendLine($"ELIGIO: {expendingMachine[code]}");
                         expendingMachine = RemoveProduct(expendingMachine, code);
                         ShowProducts(expendingMachine);
                         continue;
                     }
                     else
                     {
-                        Console.WriteLine("El codigo ingresado no es valido");
+                        sb.AppendLine("El codigo ingresado no es valido");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("El codigo ingresado no es valido");
+                    sb.AppendLine("El codigo ingresado no es valido");
                 }
 
                 if (Console.ReadLine().ToUpper() == "S")
@@ -60,7 +62,7 @@ namespace Logic
                 }
 
             }
-
+            return sb.ToString();
 
         }
 
