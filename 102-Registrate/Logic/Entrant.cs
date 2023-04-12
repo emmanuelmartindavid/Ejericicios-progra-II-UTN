@@ -64,7 +64,7 @@ namespace Logic
 
         public string ShowDataEntrant()
         {
-            StringBuilder sb= new StringBuilder();
+            StringBuilder sb= new();
           
           
             sb.AppendLine($"Nombre: {Name}");
