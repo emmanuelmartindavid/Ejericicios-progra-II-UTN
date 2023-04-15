@@ -6,7 +6,7 @@
         public double Amount { get => _amount; set => _amount = value; }
         private static double _dollarExchRate;
 
-        public Dolar()
+        static Dolar()
         {
             _dollarExchRate = 1;
         }

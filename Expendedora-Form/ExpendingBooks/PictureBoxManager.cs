@@ -9,12 +9,6 @@ namespace Machine
     public class PictureBoxManager
     {
 
-        
-                //private readonly Dictionary<int, PictureBox[]> pictureBoxes;
-
-              
-
-
         private Dictionary<int, PictureBox[]> pictureBoxes;
 
         public PictureBoxManager(PictureBox pb_lays, PictureBox pb_doritos, PictureBox pb_pringles, PictureBox pb_pepsi,

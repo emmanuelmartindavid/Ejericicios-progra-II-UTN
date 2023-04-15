@@ -14,9 +14,6 @@ namespace C01_Cotizador_Form
             InitRate();
             SetStatePadLock(_controlReadOnly);
             Btn_Padlock.BackgroundImageLayout = ImageLayout.Stretch;
-
-
-
         }
 
         private void Btn_EuroConvertion_Click(object sender, EventArgs e)
@@ -76,7 +73,6 @@ namespace C01_Cotizador_Form
 
         private void SetStatePadLock(bool value)
         {
-
             Txb_EditRateEuro.ReadOnly = value;
             Txb_EditRateDolar.ReadOnly = value;
             Txb_EditRatePeso.ReadOnly = value;
@@ -99,7 +95,7 @@ namespace C01_Cotizador_Form
             if (_controlReadOnly)
             {
             
-                Txb_EditRateEuro.Text = "0.89";
+                Txb_EditRateEuro.Text = Euro.GetRate().ToString();
 
             }
             else
@@ -111,14 +107,13 @@ namespace C01_Cotizador_Form
               
             }
 
-
         }
 
         private void Txb_EditRateDolar_TextChanged(object sender, EventArgs e)
         {
             if (_controlReadOnly)
             {
-                Txb_EditRateDolar.Text = "1";
+                Txb_EditRateDolar.Text = Dolar.GetRate().ToString();
             }
             else
             {
@@ -134,7 +129,7 @@ namespace C01_Cotizador_Form
         {
             if (_controlReadOnly)
             {
-                Txb_EditRatePeso.Text = "0.023";
+                Txb_EditRatePeso.Text = Peso.GetRate().ToString();
             }
             else
             {

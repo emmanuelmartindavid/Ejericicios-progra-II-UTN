@@ -12,7 +12,7 @@ namespace Logic
         public double Amount { get => _amount; set => _amount = value; }
         private static double _dollarExchRate;
 
-        public Euro()
+        static Euro()
         {
             _dollarExchRate = 1 / 1.09;
         }
