@@ -14,26 +14,36 @@ namespace Logic
         {
             Stack<Product> pepsi = new(GetRandomCollection(new Product("Pepsi", 100), 2));
 
-            Stack<Product> fanta = new(GetRandomCollection(new Product("Fanta", 90), 2));
+            Stack<Product> cocaCola = new(GetRandomCollection(new Product("Coca Cola", 90), 2));
 
-            Stack<Product> sprite = new(GetRandomCollection(new Product("Sprite", 110), 2));
+            Stack<Product> water = new(GetRandomCollection(new Product("Agua", 110), 2));
+
+            Stack<Product> lays = new(GetRandomCollection(new Product("Lays", 110), 2));
+
+            Stack<Product> pringles = new(GetRandomCollection(new Product("Pringles", 110), 2));
+
+            Stack<Product> doritos = new(GetRandomCollection(new Product("Doritos", 110), 2));
+
+            Stack<Product> kinder = new(GetRandomCollection(new Product("Kinder", 110), 2));
+
+            Stack<Product> oreo = new(GetRandomCollection(new Product("Oreo", 110), 2));
+
+            Stack<Product> tikTak = new(GetRandomCollection(new Product("Tik Tak", 110), 2));
 
             Products = new Dictionary<int, Stack<Product>>
             {
                 { 1, pepsi },
-                { 2, fanta },
-                { 3, sprite },
-      /*          { 4, new Stack<Product>(GetRandomCollection(new Product("Manaos", 100), 5)) },
-                { 5, new Stack<Product>(GetRandomCollection(new Product("Pepsi Max", 100), 5)) },
-                { 6, new Stack<Product>(GetRandomCollection(new Product("Coca Cola Zero", 100), 5)) },
-                { 7, new Stack<Product>(GetRandomCollection(new Product("Fanta Zero", 100), 5)) },
-                { 8, new Stack<Product>(GetRandomCollection(new Product("Sprite Zero", 100), 5)) },
-                { 9, new Stack<Product>(GetRandomCollection(new Product("Manaos Zero", 100), 5)) },
-                { 10, new Stack<Product>(GetRandomCollection(new Product("Pepsi Zero", 100), 5)) }*/
+                { 2, cocaCola },
+                { 3, water },
+                { 4, lays },
+                { 5, pringles },
+                { 6, doritos },
+                { 7, kinder },
+                { 8, oreo },
+                { 9, tikTak },
             };
 
         }
-
 
         public static ICollection<Product> GetRandomCollection(Product products, int amount)
         {       

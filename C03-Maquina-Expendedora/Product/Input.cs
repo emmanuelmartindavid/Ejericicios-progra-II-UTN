@@ -9,15 +9,6 @@ namespace Logic
     public static class Input
     {
 
-     /*   public static void ShowProducts(Dictionary<int, Stack<Product>> expendingMachine)
-        {
-            Console.WriteLine("PRODUCTOS DISPONIBLES");
-            foreach (var item in expendingMachine)
-            {
-                Console.WriteLine($"Codigo: {item.Key} - Producto: {item.Value}");
-            }
-        }*/
-
         public static void ShowProducts(Dictionary<int, Stack<Product>> expendingMachine)
         {
             Console.WriteLine("PRODUCTOS DISPONIBLES");
@@ -59,26 +50,14 @@ namespace Logic
 
         }
 
-        /* public static Dictionary<int, Stack<Product>> RemoveProduct(Dictionary<int, Stack<Product>> expendingMachine, int code)
-         {
-             if (expendingMachine.TryGetValue(code, out Stack<Product> resorte))
-             {
-                 Console.WriteLine("Desea comprar el producto? Ingrese S: ");
-                 if (Console.ReadLine() == "S")
-                 {
-                     resorte.Pop();
-                 }
-             }
-             *//*expendingMachine.Remove(code);*//*
-             return expendingMachine;
-         }*/
+
 
         public static Dictionary<int, Stack<Product>> RemoveProduct(Dictionary<int, Stack<Product>> expendingMachine, int code)
         {
             if (expendingMachine.TryGetValue(code, out Stack<Product> resorte))
             {
                 Console.WriteLine("Desea comprar el producto? Ingrese S: ");
-                if (Console.ReadLine() == "S")
+                if (Console.ReadLine().ToUpper() == "S")
                 {
                     resorte.Pop();
                 }

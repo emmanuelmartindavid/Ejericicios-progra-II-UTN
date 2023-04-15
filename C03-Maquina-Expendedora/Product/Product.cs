@@ -3,12 +3,12 @@
 
     public class Product
     {
-        private static HashSet<int> _usedCodes = new HashSet<int>();
-        private static Random _random = new Random();
+        private static HashSet<int> _usedCodes = new();
+        private static Random _random = new();
         private string _productName;
         private int _productCode;
         private decimal _productPrice;
-        //private string _productDescription;
+     
 
         public string ProductName
         {
