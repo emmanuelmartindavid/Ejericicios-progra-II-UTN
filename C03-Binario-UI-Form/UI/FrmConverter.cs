@@ -22,10 +22,6 @@ namespace UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                /*            BinaryNumber = InputNumberValidator.GetValidatedString(txtBinaryInput.Text);
-                            DecimalNumber = (DecimalNumber)BinaryNumber;
-                            txtBinaryToDecimal.Text = DecimalNumber.number.ToString();*/
-
             }
         }
 
@@ -41,10 +37,6 @@ namespace UI
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-     
-
         }
     }
 }
