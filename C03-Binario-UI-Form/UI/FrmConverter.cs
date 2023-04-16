@@ -4,8 +4,8 @@ namespace UI
 {
     public partial class FrmConverter : Form
     {
-        BinaryNumber BinaryNumber;
-        DecimalNumber DecimalNumber;
+        BinaryNumber? BinaryNumber;
+        DecimalNumber? DecimalNumber;
         public FrmConverter()
         {
             InitializeComponent();
