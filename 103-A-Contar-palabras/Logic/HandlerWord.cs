@@ -34,7 +34,7 @@ namespace Logic
 
         public static Dictionary<string, int> GetTopThreeWordsByFrequency(Dictionary<string, int> dictionary, int top)
         {
-            var topWords = new Dictionary<string, int>();
+            Dictionary<string, int> topWords = new Dictionary<string, int>();
             foreach (var word in OrderWordsByFrequency(dictionary))
             {
                 if (topWords.Count == top)
@@ -48,8 +48,8 @@ namespace Logic
 
         public static string ShowTopNWordsByFrequency(Dictionary<string, int> dictionary, int top)
         {
-            var topWords = GetTopThreeWordsByFrequency(dictionary, top);
-            var stringBuilder = new StringBuilder();
+            Dictionary<string, int> topWords = GetTopThreeWordsByFrequency(dictionary, top);
+            StringBuilder stringBuilder = new();
             stringBuilder.AppendLine($"TOP {top} PALABRAS MAS REPETIDAS:");
             foreach (var word in topWords)
             {
