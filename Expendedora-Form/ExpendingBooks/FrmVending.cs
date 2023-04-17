@@ -1,5 +1,6 @@
 using Logic;
 using Machine;
+using Machine.Properties;
 
 namespace ExpendingBooks
 {
@@ -7,11 +8,15 @@ namespace ExpendingBooks
     {
         private ExpendingMachine machine = new();
         private PictureBoxManager pbManager;
+        FrmQueueClients frmQueueClients = new();
 
 
         public FrmVending()
         {
+            frmQueueClients.ShowDialog();
             InitializeComponent();
+            lblClientName_Click(null, null);
+            btnFinishBuy_Click(null, null);
             pbManager = new(pb_lays, pb_doritos, pb_pringles, pb_pepsi, pb_coca, pb_water,
                                                   pb_kinder, pb_kat, pb_oreo);
         }
@@ -87,6 +92,32 @@ namespace ExpendingBooks
         private void btn_delete_Click(object sender, EventArgs e)
         {
             txb_codeInfo.Clear();
+        }
+
+        private void lblClientName_Click(object sender, EventArgs e)
+        {
+            int amountClient = frmQueueClients.clientQueue.Count;
+           
+            string clientName = frmQueueClients.clientQueue.Peek();
+
+            lblClientName.Text = $"{clientName}. Cantidad en fila: {amountClient}";
+        }
+
+        private void btnFinishBuy_Click(object sender, EventArgs e)
+        {
+            int amountClient = frmQueueClients.clientQueue.Count;
+            if(amountClient > 0) 
+            {
+                string clientName = frmQueueClients.clientQueue.Dequeue();
+                amountClient = frmQueueClients.clientQueue.Count;
+                lblClientName.Text = $"{clientName}. Cantidad en fila: {amountClient}";
+            }
+            else
+            {
+                lblClientName.Text = "No hay mas clientes en la fila";
+
+            }
+   
         }
     }
 }

@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVending));
             panel1 = new Panel();
+            btnFinishBuy = new Button();
+            lblClientName = new Label();
             lbl_welcome = new Label();
             txb_codeInfo = new TextBox();
             btn_confirm = new Button();
@@ -83,6 +84,8 @@
             // 
             panel1.BackColor = Color.Gray;
             panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(btnFinishBuy);
+            panel1.Controls.Add(lblClientName);
             panel1.Controls.Add(lbl_welcome);
             panel1.Controls.Add(txb_codeInfo);
             panel1.Controls.Add(btn_confirm);
@@ -92,6 +95,30 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(272, 749);
             panel1.TabIndex = 1;
+            // 
+            // btnFinishBuy
+            // 
+            btnFinishBuy.Font = new Font("Segoe UI", 13F, FontStyle.Bold, GraphicsUnit.Point);
+            btnFinishBuy.Location = new Point(28, 697);
+            btnFinishBuy.Name = "btnFinishBuy";
+            btnFinishBuy.Size = new Size(219, 37);
+            btnFinishBuy.TabIndex = 16;
+            btnFinishBuy.Text = "FINALIZAR";
+            btnFinishBuy.UseVisualStyleBackColor = true;
+            btnFinishBuy.Click += btnFinishBuy_Click;
+            // 
+            // lblClientName
+            // 
+            lblClientName.AutoSize = true;
+            lblClientName.BackColor = SystemColors.InfoText;
+            lblClientName.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblClientName.ForeColor = Color.CornflowerBlue;
+            lblClientName.Location = new Point(6, 87);
+            lblClientName.Name = "lblClientName";
+            lblClientName.Size = new Size(73, 25);
+            lblClientName.TabIndex = 15;
+            lblClientName.Text = "Cliente";
+            lblClientName.Click += lblClientName_Click;
             // 
             // lbl_welcome
             // 
@@ -112,6 +139,7 @@
             txb_codeInfo.Location = new Point(80, 162);
             txb_codeInfo.Multiline = true;
             txb_codeInfo.Name = "txb_codeInfo";
+            txb_codeInfo.ReadOnly = true;
             txb_codeInfo.Size = new Size(107, 43);
             txb_codeInfo.TabIndex = 13;
             // 
@@ -420,7 +448,7 @@
             // 
             pb_kat.BackColor = SystemColors.WindowText;
             pb_kat.BorderStyle = BorderStyle.Fixed3D;
-            pb_kat.Image = (Image)resources.GetObject("pb_kat.Image");
+            pb_kat.Image = Machine.Properties.Resources.pngegg__8_;
             pb_kat.Location = new Point(199, 483);
             pb_kat.Name = "pb_kat";
             pb_kat.Size = new Size(108, 162);
@@ -432,7 +460,7 @@
             // 
             pb_oreo.BackColor = SystemColors.WindowText;
             pb_oreo.BorderStyle = BorderStyle.Fixed3D;
-            pb_oreo.Image = (Image)resources.GetObject("pb_oreo.Image");
+            pb_oreo.Image = Machine.Properties.Resources.pngegg__9_;
             pb_oreo.Location = new Point(394, 483);
             pb_oreo.Name = "pb_oreo";
             pb_oreo.Size = new Size(114, 162);
@@ -444,7 +472,7 @@
             // 
             pb_kinder.BackColor = SystemColors.WindowText;
             pb_kinder.BorderStyle = BorderStyle.Fixed3D;
-            pb_kinder.Image = (Image)resources.GetObject("pb_kinder.Image");
+            pb_kinder.Image = Machine.Properties.Resources.pngegg__7_;
             pb_kinder.Location = new Point(17, 483);
             pb_kinder.Name = "pb_kinder";
             pb_kinder.Size = new Size(105, 162);
@@ -456,7 +484,7 @@
             // 
             pb_water.BackColor = SystemColors.WindowText;
             pb_water.BorderStyle = BorderStyle.Fixed3D;
-            pb_water.Image = (Image)resources.GetObject("pb_water.Image");
+            pb_water.Image = Machine.Properties.Resources.pngegg__6_;
             pb_water.Location = new Point(394, 252);
             pb_water.Name = "pb_water";
             pb_water.Size = new Size(114, 164);
@@ -468,7 +496,7 @@
             // 
             pb_pringles.BackColor = SystemColors.WindowText;
             pb_pringles.BorderStyle = BorderStyle.Fixed3D;
-            pb_pringles.Image = (Image)resources.GetObject("pb_pringles.Image");
+            pb_pringles.Image = Machine.Properties.Resources.pngegg__5_;
             pb_pringles.Location = new Point(394, 31);
             pb_pringles.Name = "pb_pringles";
             pb_pringles.Size = new Size(114, 157);
@@ -480,7 +508,7 @@
             // 
             pb_doritos.BackColor = SystemColors.WindowText;
             pb_doritos.BorderStyle = BorderStyle.Fixed3D;
-            pb_doritos.Image = (Image)resources.GetObject("pb_doritos.Image");
+            pb_doritos.Image = Machine.Properties.Resources.pngegg__4_;
             pb_doritos.Location = new Point(207, 31);
             pb_doritos.Name = "pb_doritos";
             pb_doritos.Size = new Size(100, 157);
@@ -491,7 +519,7 @@
             // pb_pepsi
             // 
             pb_pepsi.BackColor = SystemColors.WindowText;
-            pb_pepsi.Image = (Image)resources.GetObject("pb_pepsi.Image");
+            pb_pepsi.Image = Machine.Properties.Resources.pngegg__3_;
             pb_pepsi.Location = new Point(22, 252);
             pb_pepsi.Name = "pb_pepsi";
             pb_pepsi.Size = new Size(100, 164);
@@ -502,7 +530,7 @@
             // pb_coca
             // 
             pb_coca.BackColor = SystemColors.WindowText;
-            pb_coca.Image = (Image)resources.GetObject("pb_coca.Image");
+            pb_coca.Image = Machine.Properties.Resources.pngegg__1_;
             pb_coca.Location = new Point(199, 252);
             pb_coca.Name = "pb_coca";
             pb_coca.Size = new Size(108, 164);
@@ -515,7 +543,7 @@
             pb_lays.AccessibleRole = AccessibleRole.TitleBar;
             pb_lays.BackColor = SystemColors.WindowText;
             pb_lays.BorderStyle = BorderStyle.Fixed3D;
-            pb_lays.Image = (Image)resources.GetObject("pb_lays.Image");
+            pb_lays.Image = Machine.Properties.Resources.pngegg;
             pb_lays.Location = new Point(17, 31);
             pb_lays.Name = "pb_lays";
             pb_lays.Size = new Size(105, 157);
@@ -598,5 +626,7 @@
         private Label label6;
         private Label label5;
         private RichTextBox rtxt_message;
+        private Label lblClientName;
+        private Button btnFinishBuy;
     }
 }
