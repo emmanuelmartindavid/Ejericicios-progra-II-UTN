@@ -7,17 +7,7 @@ namespace Logic
         private string _name;
         private int _number;
 
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
-
-        public int Number
-        {
-            get => _number;
-        }
-
+      
         public Client(int number)
         {
             _number = number;
@@ -26,6 +16,19 @@ namespace Logic
         public Client(int number, string name) : this(number)
         {
             _name = name;
+        }
+
+    
+
+        public int Number
+        {
+            get => _number;
+        }
+
+        public string Name
+        {
+            get => _name;
+            set => _name = value;
         }
 
         public static bool operator ==(Client left, Client right)

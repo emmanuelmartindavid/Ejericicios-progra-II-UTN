@@ -15,8 +15,8 @@ namespace Logic
 
         private Business()
         {
-            _box = new(ServiceDesk.Service.Box1);
-            _clients = new();
+            _box = new ServiceDesk(ServiceDesk.Service.Box1);
+            _clients = new Queue<Client>();
         }
 
         public Business(string name) : this()
@@ -33,22 +33,10 @@ namespace Logic
             set { _ = this + value; }
         }
 
-        public static bool operator +(Business business, Client newClient)
-        {
-            if (business is not null && newClient is not null)
-            {
-                if (newClient != business.Client)
-                {
-                    business._clients.Enqueue(newClient);
-                    return true;
-                }
-            }
-            return false;
-        }
-
+   
         public static bool operator ==(Business business, Client client)
         {
-            foreach (var item in business._clients)
+            foreach (Client item in business._clients)
             {
                 if (item == client)
                 {
@@ -63,12 +51,23 @@ namespace Logic
             return !(business == client);
         }
 
+        public static bool operator +(Business business, Client newClient)
+        {
+            if (business != newClient)
+            {
+                business._clients.Enqueue(newClient);
+                return true;
+            }
+            return false;
+        }
+
+
         public static bool operator ~(Business business)
         {
             if (business._clients.Count > 0)
             {
                 return business._box.ServeClient(business.Client);
-               
+
             }
 
             return false;
