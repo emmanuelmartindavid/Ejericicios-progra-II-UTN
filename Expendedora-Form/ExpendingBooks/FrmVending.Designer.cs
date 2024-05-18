@@ -572,6 +572,7 @@
             Controls.Add(panel1);
             Name = "FrmVending";
             Text = "Form1";
+            Load += FrmVending_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);

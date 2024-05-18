@@ -8,13 +8,7 @@ namespace Logic
 {
     public class MotCross : RaceVehicle
     {
-        private short _cylinderCapacity;
-
-        public short CylinderCapacity
-        {
-            get => _cylinderCapacity;
-            set => _cylinderCapacity = value;
-        }
+        public short CylinderCapacity { get; set; }
 
         public MotCross(short vehicleNumber, string scuderia) : base(vehicleNumber, scuderia)
         {
@@ -26,12 +20,8 @@ namespace Logic
         }
 
         public static bool operator ==(MotCross mot1, MotCross mot2)
-        {
-            if (mot1 == mot2)
-            {
-                return true;
-            }
-            return mot1.CylinderCapacity == mot2.CylinderCapacity;
+        {        
+            return (RaceVehicle)mot1 == mot2 && mot1.CylinderCapacity == mot2.CylinderCapacity;
         }
 
         public static bool operator !=(MotCross mot1, MotCross mot2)

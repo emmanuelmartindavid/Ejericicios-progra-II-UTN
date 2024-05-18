@@ -27,13 +27,8 @@ namespace Logic
         }
 
         public static bool operator ==(Formula1Car car1, Formula1Car car2)
-        {
-            if(car1 == car2)
-            {
-                return true;
-            }
-          
-            return car1.HorsePower == car2.HorsePower;
+        {   
+            return (RaceVehicle)car1 == car2 && car1.HorsePower == car2.HorsePower;
         } 
 
         
@@ -49,6 +44,8 @@ namespace Logic
             sb.AppendLine($"Potencia: {HorsePower}");
             return sb.ToString();
         }
+
+
     }
    
 }
